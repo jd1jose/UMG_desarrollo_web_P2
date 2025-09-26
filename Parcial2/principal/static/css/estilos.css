@@ -21,4 +21,74 @@ footer {
   color: white;
   text-align: center;
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+table thead {
+  background: #1D3557;
+  color: white;
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+  background: #a19898;
+}
+
+.card {
+  width: 60%;
+  margin: 20px 0;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #1D3557;
+}
+
+.card button {
+  background: #1D3557;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #457B9D;
+}
+.video-link {
+  color: #1D3557;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.video-link:hover {
+  color: #457B9D;
+  text-decoration: underline;
+}
+
+main {
+  padding: 20px;
+  margin-bottom: 80px;
 }

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>{% block title %}Segundo Parcial{% endblock %}</title>
+  <title>{% block title %}Proyecto de Django{% endblock %}</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
@@ -10,8 +10,9 @@
   <header>
     <h1>Segundo Parcial</h1>
     <nav>
-      <a href="{% url 'index' %}">Inicio</a>
-      <a href="{% url 'about' %}">Acerca de</a>
+      <a href="{% url 'videos' %}">Videos</a>
+      <a href="{% url 'usuarios' %}">Usuarios</a>
+      <a href="{% url 'creditos' %}">Créditos</a>
     </nav>
   </header>
 

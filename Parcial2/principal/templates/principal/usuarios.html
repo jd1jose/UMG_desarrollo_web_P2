@@ -1,0 +1,66 @@
+{% extends "principal/base.html" %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+<button class="btn btn-info " onclick="toggleListado()">Ver Listado</button>
+<button class="btn btn-info " onclick="toggleAddNewUsuario()">Agregar Usuario</button>
+<div id="listaUsuarios" style="display:none; margin-top:20px;">
+  <h2>Listado de Usuarios</h2>
+{% if usuarios %}
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Carne</th>
+      <th>Correo</th>
+      <th>Fecha de Registro</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for usuario in usuarios %}
+    <tr>
+      <td>{{ usuario.id }}</td>
+      <td>{{ usuario.nombre }}</td>
+      <td>{{ usuario.carne }}</td>
+      <td>{{ usuario.correo }}</td>
+      <td>{{ usuario.fecha_registro|date:"d/m/Y" }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>No hay usuarios registrados.</p>
+{% endif %}
+</div>
+
+<div  id="formUsuario" class="card" style="display:none; margin-top:20px;">
+  <h3>Agregar nuevo Usuario</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+</div>
+
+
+<script>
+  function toggleListado() {
+    let lista = document.getElementById("listaUsuarios");
+    if (lista.style.display === "none") {
+      lista.style.display = "block";
+    } else {
+      lista.style.display = "none";
+    }
+  }
+  function toggleAddNewUsuario() {
+    let formV = document.getElementById("formUsuario");
+    if (formV.style.display === "none") {
+      formV.style.display = "block";
+    } else {
+      formV.style.display = "none";
+    }
+  }
+</script>
+{% endblock %}

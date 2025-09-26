@@ -1,0 +1,51 @@
+{% extends "principal/base.html" %}
+
+{% block title %}Videos{% endblock %}
+
+{% block content %}
+<button class="btn btn-info " onclick="toggleListado()">Ver Listado</button>
+<button class="btn btn-info " onclick="toggleAddNewVideo()">Agregar Video</button>
+<div id="listaVideos" style="display:none; margin-top:20px;">
+<h2>Listado de Videos</h2>
+<ul >
+  {% for video in videos %}
+    <li class="card" >
+      <strong>{{ video.titulo }}</strong><br>
+      {{ video.descripcion }}<br>
+      <a href="{{ video.url }}" target="_blank">Ver video</a><br>
+      <span>{{video.fecha_publicacion |date:"d/m/Y"}} </span>
+    </li>
+  {% empty %}
+    <li>No hay videos registrados.</li>
+  {% endfor %}
+</ul>
+</div>
+
+<div  class="card" id="formVideo" style="display:none; margin-top:20px;">
+<h3>Agregar nuevo Video</h3>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+</div>
+
+<script>
+function toggleListado() {
+    let lista = document.getElementById("listaVideos");
+    if (lista.style.display === "none") {
+        lista.style.display = "block";
+    } else {
+        lista.style.display = "none";
+    }
+}
+function toggleAddNewVideo() {
+    let formV = document.getElementById("formVideo");
+    if (formV.style.display === "none") {
+        formV.style.display = "block";
+    } else {
+        formV.style.display = "none";
+    }
+}
+</script>
+{% endblock %}
